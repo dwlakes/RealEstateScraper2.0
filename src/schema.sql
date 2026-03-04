@@ -1,0 +1,21 @@
+CREATE TABLE properties (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    listing_id TEXT,
+    area TEXT,
+    country TEXT,
+    price TEXT,
+    property_type TEXT,
+    bedrooms REAL,
+    bathrooms REAL,
+    toilet_rooms REAL,
+    living_area TEXT,
+    land_area TEXT,
+    rooms REAL,
+    parking REAL,
+    construction_year INTEGER,
+    lat TEXT,
+    lon TEXT,
+    url TEXT UNIQUE,
+    features TEXT,
+    scraped_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
