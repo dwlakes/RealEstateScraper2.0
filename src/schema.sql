@@ -15,6 +15,7 @@ CREATE TABLE properties (
     construction_year INTEGER,
     lat TEXT,
     lon TEXT,
+    distance_to_coast_km REAL,
     url TEXT UNIQUE,
     features TEXT,
     scraped_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

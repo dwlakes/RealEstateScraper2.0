@@ -12,6 +12,7 @@ FIELD_MAP = {
     "Land": "land_area",
     "Parking lots (inside)": "parking",
     "Construction year": "construction_year",
+    "distance_to_coast_km": "distance_to_coast_km",
 }
 
 class Property(BaseModel):
@@ -31,6 +32,7 @@ class Property(BaseModel):
     construction_year: Optional[int] = None
     lat: str = ""
     lon: str = ""
+    distance_to_coast_km: Optional[float] = None
     url: str = ""
     features: str = ""
 

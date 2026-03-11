@@ -121,7 +121,7 @@ def parse_features(html: str) -> dict:
     if not container:
         print("WARNING — location-map container not found")
     if container:
-        print(f"container {container}")
+        #print(f"container {container}")
         coords = get_coords(container)
         print(f"lat {coords["lat"]}")
         print(f"lon {coords["lon"]}")
@@ -137,6 +137,7 @@ def parse_features(html: str) -> dict:
         if key and value:
             features[key.get_text(strip=True)] = value.get_text(strip=True)
             features.update(coords)
+        
     return features
 
 def save_to_csv(listings: list[Property], path: Path) -> None:
@@ -171,7 +172,7 @@ def get_country_listings(country):
         house.toilet_rooms = float(house.toilet_rooms) if house.toilet_rooms else None
         house.rooms = float(house.rooms) if house.rooms else None
         house.parking = float(house.parking) if house.parking else None
-        #print(f"house: {house}")
+        print(f"url: {house.url}")
         print("--------New House--------")
 
     all_listings.extend(validated.listings)
