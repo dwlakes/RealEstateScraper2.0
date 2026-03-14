@@ -50,6 +50,8 @@ FAIL_THRESHOLD = 3
 
 
 def nearest_city(lat, lon):
+    print(lat)
+    print(lon)
     point = gpd.GeoDataFrame(
     geometry=[Point(float(lon), float(lat))],
     crs="EPSG:4326"
@@ -78,6 +80,7 @@ def get_elevation(lat, lon):
         try:
             elevation = api(lat, lon)
             api_fail_counts[i] = 0  # reset on success
+            print(f"elevation_m: {elevation}")
             return {"elevation_m": elevation}
         except Exception as e:
             api_fail_counts[i] += 1
@@ -97,6 +100,7 @@ def distance_to_coast(lat, lon):
     nearest_wgs84 = gpd.GeoDataFrame(geometry=[nearest_point], crs="EPSG:3857").to_crs("EPSG:4326")
     print(f"Nearest coast point: {nearest_wgs84.geometry[0].y}, {nearest_wgs84.geometry[0].x}")
     coast_dict = {"distance_to_coast_km":distances.min()/1000}
+    print(f"coast dist: {coast_dict}")
     # Convert to km and find shortest distance
     #print(f"Dist: {distances.min()}")
     return coast_dict
